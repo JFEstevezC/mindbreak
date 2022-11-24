@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, Button, Entry, Toplevel
+from tkinter import Tk, Label, Button, Entry, Toplevel, PhotoImage
 
 def aceptar():
     usuario = usuario_entry.get()
@@ -33,13 +33,16 @@ def inicio():
     boton_aceptar.grid(row=2, column=0, padx=10, pady=10, sticky= "W")
     boton_cancelar.grid(row=2, column=1, padx=10, pady=10, sticky= "E")
 
-root = Tk()
-root.title("Ventana de acceso")
-root.geometry("300x150")
-root.minsize(300, 150)
-boton = Button(text="ACCEDER",command=inicio)
+ventana_principal = Tk()
+ventana_principal.title("MINDBREAK")
+ventana_principal.geometry("417x627")
+ventana_principal.minsize(417, 627)
+ventana_principal.config(bg="#eeeee4")
+imagen= PhotoImage(file="imagenes/tl.png")
+boton = Button(image=imagen, text="ACCEDER",command=inicio)
+boton.config(width=140, height=140, bg="#eeeee4")
 etiqueta = Label(text="Usuario no introducido")
 boton.place(relx=0.5, rely=0.5, anchor="center")
 etiqueta.pack(side="bottom", pady=5)
 
-root.mainloop()
+ventana_principal.mainloop()
