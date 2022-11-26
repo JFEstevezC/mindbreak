@@ -6,14 +6,14 @@ def aceptar():
         etiqueta.configure(text="Usuario: " + usuario)
     else:
         etiqueta.configure(text="Usuario no introducido")
-    ventana_de_configuracion.destroy()
+        ventana_de_configuracion.destroy()
     
 def cancelar():
     usuario_entry.delete(0, "end")
     contraseña_entry.delete(0, "end")
 
 def inicio():
-    global ventana_acceso, usuario_entry, contraseña_entry
+    global ventana_de_configuracion, usuario_entry, contraseña_entry
     
     ventana_de_configuracion = Toplevel()
     ventana_de_configuracion.title("Configuración")
