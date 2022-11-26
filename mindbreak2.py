@@ -6,25 +6,25 @@ def aceptar():
         etiqueta.configure(text="Usuario: " + usuario)
     else:
         etiqueta.configure(text="Usuario no introducido")
-    ventana_acceso.destroy()
+    ventana_de_configuracion.destroy()
     
 def cancelar():
     usuario_entry.delete(0, "end")
     contraseña_entry.delete(0, "end")
 
 def inicio():
-    global ventana_acceso, usuario_entry, contraseña_entry
+    global ventana_de_configuracion, usuario_entry, contraseña_entry
     
     ventana_de_configuracion = Toplevel()
     ventana_de_configuracion.title("Configuración")
     ventana_de_configuracion.resizable(False, False)
 
-    usuario_label = Label(ventana_acceso, text="USUARIO:")
-    usuario_entry = Entry(ventana_acceso, bd=5, highlightcolor="red", highlightthickness=2)
-    contraseña_label = Label(ventana_acceso, text="CONTRASEÑA:")
-    contraseña_entry = Entry(ventana_acceso, bd=5, show='*', highlightcolor="red", highlightthickness=2)
-    boton_aceptar = Button(ventana_acceso, text="ACEPTAR", command=aceptar)
-    boton_cancelar = Button(ventana_acceso, text="CANCELAR", command=cancelar)
+    usuario_label = Label(ventana_de_configuracion, text="USUARIO:")
+    usuario_entry = Entry(ventana_de_configuracion, bd=5, highlightcolor="red", highlightthickness=2)
+    contraseña_label = Label(ventana_de_configuracion, text="CONTRASEÑA:")
+    contraseña_entry = Entry(ventana_de_configuracion, bd=5, show='*', highlightcolor="red", highlightthickness=2)
+    boton_aceptar = Button(ventana_de_configuracion, text="ACEPTAR", command=aceptar)
+    boton_cancelar = Button(ventana_de_configuracion, text="CANCELAR", command=cancelar)
 
     usuario_label.grid(row=0, column=0, sticky= "W", padx=10, pady=10)
     usuario_entry.grid(row=0, column=1, padx=10)
