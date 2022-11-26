@@ -1,46 +1,15 @@
-from tkinter import*
-#ventasecundaria
-def secundaria():
-    global ventana_secundaria, fram_conf, framesec
-    c="#eeeee4"
-    ventana_secundaria=Tk()
-    ventana_secundaria.geometry("417x617")
-    ventana_secundaria.config(bg=c)
-    ventana_secundaria.resizable(0,0)
-    #frameconfig
-    fram_conf=Frame(ventana_secundaria)
-    fram_conf.config(bg=c ,width=417,height=617)
-    fram_conf.place(x=0,y=0)
-    #imagen
-    cerebro=PhotoImage(file="imagenes/cerebro.png")
-    lb_cerebro=Label(fram_conf, image=cerebro)
-    lb_cerebro.config(bg=c,)
-    lb_cerebro.place(x=100, y=30)
+from tkinter import *
 
-    #frameavisual
-    framesec=Frame(ventana_secundaria)
-    framesec.config(bg=c ,width=417,height=417)
-    framesec.place(x=0,y=260)
-    #logos imagenes
-    faceb=PhotoImage(file="imagenes/facebook.png")
-    lb_faceb=Label(framesec, image=faceb)
-    lb_faceb.config(bg=c,)
-    lb_faceb.place(x=30, y=58)
+root = Tk()
+root.config(bd=15)
 
-    twiter=PhotoImage(file="imagenes/twiter.png")
-    lb_twiter=Label(framesec, image=twiter)
-    lb_twiter.config(bg=c,)
-    lb_twiter.place(x=30, y=-20)
+leche = IntVar()      # 1 si, 0 no
+azucar = IntVar()    # 1 si, 0 no
 
-    instagram=PhotoImage(file="imagenes/instagram.png")
-    lb_insta=Label(framesec, image=instagram)
-    lb_insta.config(bg=c,)
-    lb_insta.place(x=30, y=137)
+Label(root,text="¿Cómo quieres el café?").pack()
+Checkbutton(root, text="Con leche", variable=leche, 
+            onvalue=1, offvalue=0).pack()
+Checkbutton(root, text="Con azúcar",variable=leche, 
+            onvalue=1, offvalue=0).pack()
 
-    tktok=PhotoImage(file="imagenes/tiktok.png")
-    lb_tik=Label(framesec, image=tktok)
-    lb_tik.config(bg=c,)
-    lb_tik.place(x=30, y=225)
-
-
-
+root.mainloop()
