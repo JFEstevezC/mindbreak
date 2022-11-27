@@ -33,7 +33,7 @@ lb_reloj.config(bg=c,)
 lb_reloj.place(x=125,y=60)
 
 #checklist
-list=Checkbutton(ter_vent,text="opcion" )
-list.config(bg=c)
+list=Checkbutton(ter_vent,text="" )
+list.config(bg=c, )
 list.place(x=220, y=350)
 ter_vent.mainloop()
