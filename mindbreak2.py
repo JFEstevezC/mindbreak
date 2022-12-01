@@ -1,10 +1,11 @@
 from tkinter import*
 c="#eeeee4"   
 def secundaria():
+    ventana_principal.destroy()
     global ventana_secundaria, fram_conf, framesec
     ventana_secundaria=Toplevel()
     ventana_secundaria.geometry("417x617")
-    ventana_secundaria.config(bg=c)
+    ventana_secundaria.config(bg="#eeeee4")
     ventana_secundaria.resizable(0,0)
     #frameconfig
     fram_conf=Frame(ventana_secundaria)
@@ -69,9 +70,8 @@ imagen= PhotoImage(file="imagenes/tl.png")
 #buttoninicio
 boton = Button(image=imagen, text="ACCEDER",command=secundaria)
 boton.config(width=180, height=180, bg="#eeeee4", bd=0,cursor="hand2")
-etiqueta = Label(text="Estévez Cárdenas Jose Fernando")
-etiqueta2 = Label(text="Olarte ")
-etiqueta3 = Label(text="Estévez Cárdenas Jose Fernando")
+etiqueta = Label(text="Creado por: \n Estévez Cárdenas Jose Fernando\n Olarte Saavedra Shneider Alejandro \n UIS\n")
+etiqueta.config(bg="#eeeee4")
 boton.place(relx=0.27, rely=0.18, )
 etiqueta.pack(side="bottom", pady=5)
 
