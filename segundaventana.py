@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, Button, Entry, Toplevel
+from tkinter import Tk, Label, Button, Entry, Toplevel, PhotoImage
 
 def aceptar():
     usuario = usuario_entry.get()
