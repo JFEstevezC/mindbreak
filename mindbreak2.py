@@ -43,22 +43,6 @@ def secundaria():
     botton.place(x=0,y=0)
 
     ventana_secundaria.mainloop()
-    
-
-
-"""  
-ventana_de_configuracion = Toplevel()
-ventana_de_configuracion.title("Configuración")
-ventana_de_configuracion.resizable(False, False)
-
-usuario_label = Label(ventana_de_configuracion, text="USUARIO:")
-usuario_entry = Entry(ventana_de_configuracion, bd=5, highlightcolor="red", highlightthickness=2)
-contraseña_label = Label(ventana_de_configuracion, text="CONTRASEÑA:")
-contraseña_entry = Entry(ventana_de_configuracion, bd=5, show='*', highlightcolor="red", highlightthickness=2)
-#boton_aceptar = Button(ventana_de_configuracion, text="ACEPTAR", command=aceptar)
-#boton_cancelar = Button(ventana_de_configuracion, text="CANCELAR", command=cancelar)
-
-"""
 
 ventana_principal = Tk()
 ventana_principal.title("MINDBREAK")
@@ -67,12 +51,16 @@ ventana_principal.resizable(False, False)
 ventana_principal.config(bg="#eeeee4")
 #imagen
 imagen= PhotoImage(file="imagenes/tl.png")
+imagen_logo = PhotoImage(file="imagenes/titulo.png")
 #buttoninicio
+lb_logo = Label(image=imagen_logo)
+lb_logo.place(x=10, y=10 )
+lb_logo.config(width=397, height=200, bg="#eeeee4")
 boton = Button(image=imagen, text="ACCEDER",command=secundaria)
-boton.config(width=180, height=180, bg="#eeeee4", bd=0,cursor="hand2")
+boton.place(x=160, y=220)
+boton.config(width=100, height=100, bg="#eeeee4", bd=0,cursor="hand2")
 etiqueta = Label(text="Creado por: \n Estévez Cárdenas Jose Fernando\n Olarte Saavedra Shneider Alejandro \n UIS\n")
 etiqueta.config(bg="#eeeee4")
-boton.place(relx=0.27, rely=0.18, )
 etiqueta.pack(side="bottom", pady=5)
 
 ventana_principal.mainloop()
