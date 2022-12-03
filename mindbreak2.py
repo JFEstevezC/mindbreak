@@ -6,6 +6,9 @@ def configuracion():
     ter_vent.geometry("417x617+540+10")
     ter_vent.resizable(0,0)
     ter_vent.config(bg=c)
+    lb_titulo=Label(ter_vent, text= "Ajustes")
+    lb_titulo.config(bg="#eeeee4", fg="black", font=("Arial",30))
+    lb_titulo.place(x=100, y=15)
     #button
     engr=PhotoImage(file="imagenes/engranaje.png")
     bt_engr=Button(ter_vent, image=engr, command=secundaria)
