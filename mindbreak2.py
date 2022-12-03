@@ -1,7 +1,7 @@
 from tkinter import*
 c="#eeeee4"
 def configuracion():
-    
+    info=PhotoImage(file="imagenes/simboloinfo.png")
     ter_vent=Toplevel()
     ter_vent.geometry("417x617+540+10")
     ter_vent.resizable(0,0)
@@ -27,25 +27,34 @@ def configuracion():
     lb_reloj.config(bg=c,)
     lb_reloj.place(x=125,y=60)
 
-
-    lb_tiempo=Label(ter_vent, text="Tiempo límite")
-    lb_tiempo.config(bg="#eeeee4",width=30, height=40, fg="blue", font=("Arial", 12))
-    lb_tiempo.place(x=100, y=300)
-
     #checklist
+    lb_t1=Label(ter_vent, text= "Tiempo límite")
+    lb_t1.config(bg="#eeeee4", fg="black", font=("Arial",16))
+    lb_t1.place(x=50, y=275)
+    lb_info1=Label(framesec, image=info)
+    lb_info1.config(bg="#eeeee4", fg="black", font=("Arial",16))
+    lb_info1.place(x=300, y=75)
     list=Checkbutton(ter_vent,text="")
     list.config(bg=c, )
-    list.place(x=220, y=350)
+    list.place(x=290, y=350)
+    lb_t1=Label(ter_vent, text= "Bloqueo de aplicaciones")
+    lb_t1.config(bg="#eeeee4", fg="black", font=("Arial",16))
+    lb_t1.place(x=50, y=350)
     
     #checklist
     list=Checkbutton(ter_vent,text="")
     list.config(bg=c, )
-    list.place(x=220, y=400)
-    
+    list.place(x=290, y=400)
+    lb_t2=Label(ter_vent, text= "Avisos de límite")
+    lb_t2.config(bg="#eeeee4", fg="black", font=("Arial",16))
+    lb_t2.place(x=50, y=400)
     #checklist
     list=Checkbutton(ter_vent,text="")
     list.config(bg=c, )
-    list.place(x=220, y=450)
+    list.place(x=290, y=450)
+    lb_t3=Label(ter_vent, text= "Modo estricto")
+    lb_t3.config(bg="#eeeee4", fg="black", font=("Arial",16))
+    lb_t3.place(x=50, y=450)
     ter_vent.mainloop()
 
 
