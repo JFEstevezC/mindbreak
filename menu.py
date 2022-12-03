@@ -1,41 +1,32 @@
-from tkinter import Tk, Menu, PhotoImage
+import tkinter as tk
+from tkinter import messagebox
 
-def salir():
-    root.destroy()
-   
-root = Tk()
-barra_menus = Menu()
-root.config(menu=barra_menus)
+ventana = tk.Tk()
+ventana.title("Temporizador")
 
-menu_archivo = Menu(tearoff=0)
-menu_archivo.add_command(label="Nuevo")
+# Función que cuenta el tiempo
+def contador():
+    segundos = int(entry_segundos.get())
+    for segundo in range(segundos):
+        print(segundo + 1)
+        ventana.update()
+        ventana.after(1000)
+    messagebox.showinfo(title="Fin", message="Ha finalizado el temporizador")
 
-submenu_abrir = Menu(tearoff=0)
-submenu_abrir.add_command(label="Explorar")
-submenu_abrir.add_command(label="Recientes")
-menu_archivo.add_cascade(label='Abrir', menu=submenu_abrir)
+# Frame
+frame = tk.Frame(ventana)
+frame.pack()
 
-menu_archivo.add_command(label="Guardar")
-menu_archivo.add_command(label="Guardar como")
-menu_archivo.add_separator()
-barra_menus.add_cascade(label="Archivo", menu=menu_archivo)
+# Label
+label_segundos = tk.Label(frame, text="Segundos:")
+label_segundos.grid(row=0, column=0, padx=5, pady=5)
 
-menu_edicion = Menu(tearoff=0)
-menu_edicion.add_command(label="Deshacer")
-menu_edicion.add_command(label="Rehacer")
-menu_edicion.add_separator()
-menu_edicion.add_command(label="Copiar")
-menu_edicion.add_command(label="Pegar")
-menu_edicion.add_command(label="Borrar")
-menu_edicion.add_command(label="Seleccionar todo")
-barra_menus.add_cascade(label="Edición", menu=menu_edicion)
+# Entry
+entry_segundos = tk.Entry(frame)
+entry_segundos.grid(row=0, column=1, padx=5, pady=5)
 
+# Botón
+boton_iniciar = tk.Button(frame, text="Iniciar", command=contador)
+boton_iniciar.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
 
-menu_ayuda = Menu(tearoff=0)
-menu_ayuda.add_command(label="Manual usuario")
-menu_ayuda.add_command(label="Acerca de...")
-barra_menus.add_cascade(label="Ayuda", menu=menu_ayuda)
-
-root.mainloop()
-
-
+ventana.mainloop()

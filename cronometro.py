@@ -1,57 +1,30 @@
-from tkinter import Tk, Label, Button, StringVar
+import tkinter as tk
+from tkinter import ttk
 
-hora=minuto=segundo=0
-inicio=False
+# creamos la ventana
+ventana = tk.Tk()
+ventana.title("Temporizador")
+ventana.geometry("300x150")
 
-def actualizar_tiempo():
-    global hora, minuto, segundo
+# creamos la etiqueta
+etiqueta = ttk.Label(ventana, text="Introduce el número de minutos:")
+etiqueta.grid(column=0, row=0)
 
-    if inicio:  
-        segundo += 1
-        if segundo == 60:
-            segundo = 0
-            minuto += 1
-        if minuto == 60:
-            segundo = 0
-            minuto = 0
-            hora += 1
-        if hora == 99:
-            segundo = 0
-            minuto = 0
-            hora = 0
-        if hora < 10: hora_str = "0"+str(hora)
-        else: hora_str = str(hora)
-        if minuto < 10: minuto_str = "0"+str(minuto)
-        else: minuto_str = str(minuto)
-        if segundo < 10: segundo_str = "0"+str(segundo)
-        else: segundo_str = str(segundo)
-        variable_control.set(hora_str+":"+minuto_str+":"+segundo_str)
-        root.after(1000, actualizar_tiempo)
+# creamos el campo de entrada
+minutos = tk.IntVar()
+campo = ttk.Entry(ventana, width=10, textvariable=minutos)
+campo.grid(column=1, row=0)
 
-def start():
-    global hora, minuto, segundo, inicio
+# creamos el botón
+def iniciar():
+    tiempo = minutos.get() *60
+    for i in range(tiempo):
+        tiempo = tiempo -1
+        if tiempo == 0:
+            print("¡Terminó el tiempo!")
+            break
 
-    if not(inicio):
-        variable_control.set("00:00:00")
-        hora=minuto=segundo=0
-        inicio=True
-        root.after(1000, actualizar_tiempo)
+boton = ttk.Button(ventana, text="Iniciar", command=iniciar)
+boton.grid(column=0, row=1)
 
-def stop():
-    global inicio
-    inicio=False
-
-root = Tk()
-root.resizable(False, False)
-
-variable_control = StringVar(value="00:00:00")
-
-reloj = Label(textvariable= variable_control, fg="blue", font=("Arial", 18), padx=20, pady=20)
-boton_start = Button(text="Start", padx=10,  fg="white", bg="green", command=start)
-boton_stop = Button(text="Stop", padx=10, fg="white", bg="red", command=stop)
-
-reloj.pack()
-boton_start.pack(side="left", padx=10, pady=10)
-boton_stop.pack(side="right", padx=10, pady=10)
-
-root.mainloop()
+ventana.mainloop()
